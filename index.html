@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthy Food Selector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <h1>Healthy Food Selector</h1>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content">
+    <button class="random-button" onclick="showRandomFood()">RANDOM FOOD BUTTON</button>
+
+    <div class="food-grid" id="foodGrid">
+      <!-- Food items will be injected here -->
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="https://www.myplate.gov" target="_blank">MYPLATE.GOV</a>
+    <div>Healthy Meals &copy; 2025</div>
+    <a href="https://www.fda.gov" target="_blank">FDA LINK</a>
+  </footer>
+
+  <script>
+    const healthyFoods = [
+      "Apple Slices",
+      "Carrot Sticks",
+      "Greek Yogurt",
+      "Trail Mix (Low Sugar)",
+      "Hard-Boiled Egg",
+      "Hummus & Celery",
+      "Banana",
+      "Almonds",
+      "Cottage Cheese",
+      "Whole Grain Crackers"
+    ];
+
+    function populateFoodOptions() {
+      const foodGrid = document.getElementById('foodGrid');
+      foodGrid.innerHTML = "";
+      healthyFoods.forEach((food, index) => {
+        const div = document.createElement('div');
+        div.className = 'food-item';
+        div.textContent = food;
+        foodGrid.appendChild(div);
+      });
+    }
+
+    function showRandomFood() {
+      const randomFood = healthyFoods[Math.floor(Math.random() * healthyFoods.length)];
+      alert("Try this healthy option: " + randomFood);
+    }
+
+    window.onload = populateFoodOptions;
+  </script>
+
+</body>
+</html>
